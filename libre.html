@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recetario Completo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ff6b6b;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #ffe066;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6b6b;
+      margin: 40px 20px 20px 20px;
+      font-size: 2.8em;
+    }
+
+    .recetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+      margin: 20px auto 50px auto;
+      padding: 0 20px;
+    }
+
+    .receta {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .receta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+    .receta img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .contenido-card {
+      padding: 15px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .titulo {
+      font-weight: 700;
+      font-size: 1.3em;
+      color: #ff6b6b;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s ease;
+    }
+    .titulo:hover {
+      color: #ff4757;
+    }
+    .detalle {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.6;
+      flex: 1;
+    }
+    h4 {
+      margin-bottom: 6px;
+      color: #555;
+    }
+    ul {
+      margin: 0 0 10px 20px;
+    }
+    p {
+      margin: 0 0 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú -->
+  <nav>
+    <a onclick="mostrarCategoria('entradas')">Entradas</a>
+    <a onclick="mostrarCategoria('bebidas')">Bebidas</a>
+    <a onclick="mostrarCategoria('postres')">Postres</a>
+    <a onclick="mostrarCategoria('comidas')">Comidas</a>
+    <a onclick="mostrarCategoria('todas')">Todas</a>
+  </nav>
+
+  <h1>📖 Recetario Completo - 20 Recetas</h1>
+
+  <div class="recetas">
+
+    <!-- Entradas -->
+    <div class="receta categoria" data-categoria="entradas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(1).jpg" alt="Ensalada Fresca">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥗 Ensalada Fresca</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Lechuga</li><li>Tomate</li><li>Pepino</li><li>Aceite y limón</li></ul>
+          <h4>Preparación:</h4>
+          <p>Corta vegetales, mezcla y agrega aderezo de aceite y limón.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="entradas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(9).jpg" alt="Guacamole">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥑 Guacamole</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Aguacates</li><li>Cebolla</li><li>Tomate</li><li>Limón</li><li>Sal</li></ul>
+          <h4>Preparación:</h4>
+          <p>Machaque aguacates, mezcla con cebolla, tomate, limón y sal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="entradas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(3).jpg" alt="Tacos Mexicanos">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🌮 Tacos Mexicanos</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Tortillas</li><li>Carne</li><li>Cebolla y cilantro</li><li>Salsa</li></ul>
+          <h4>Preparación:</h4>
+          <p>Calienta tortilla, agrega carne, cebolla, cilantro y salsa.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="entradas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(7).jpg" alt="Sopa de Verduras">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥣 Sopa de Verduras</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Zanahoria</li><li>Apio</li><li>Papa</li><li>Caldo de verduras</li></ul>
+          <h4>Preparación:</h4>
+          <p>Cocina las verduras en el caldo hasta que estén tiernas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bebidas -->
+    <div class="receta categoria" data-categoria="bebidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(2).jpg" alt="Limonada Refrescante">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥤 Limonada Refrescante</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Limones</li><li>Agua</li><li>Azúcar</li><li>Hielo</li></ul>
+          <h4>Preparación:</h4>
+          <p>Exprime limones, mezcla con agua y azúcar. Agrega hielo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="bebidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(12).jpg" alt="Smoothie de Fresas">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍓 Smoothie de Fresas</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Fresas</li><li>Yogur</li><li>Leche</li><li>Miel</li></ul>
+          <h4>Preparación:</h4>
+          <p>Licua todos los ingredientes hasta obtener una mezcla suave y sirve frío.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="bebidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(20).jpg" alt="Café con Leche">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">☕ Café con Leche</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Café</li><li>Leche</li><li>Azúcar</li></ul>
+          <h4>Preparación:</h4>
+          <p>Prepara café y agrégale leche caliente y azúcar al gusto.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="bebidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(21).jpg" alt="Jugo de Naranja">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍊 Jugo de Naranja</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Naranjas</li><li>Azúcar</li><li>Agua</li></ul>
+          <h4>Preparación:</h4>
+          <p>Exprime las naranjas y mezcla con agua y azúcar al gusto.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Postres -->
+    <div class="receta categoria" data-categoria="postres">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(4).jpg" alt="Brownie de Chocolate">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍫 Brownie de Chocolate</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Chocolate</li><li>Mantequilla</li><li>Azúcar</li><li>Huevos</li><li>Harina</li></ul>
+          <h4>Preparación:</h4>
+          <p>Derretir chocolate con mantequilla, agregar azúcar y huevos, mezclar con harina. Hornear 20 min a 180°C.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="postres">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(13).jpg" alt="Pan de Banana">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍌 Pan de Banana</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Bananas maduras</li><li>Harina</li><li>Huevos</li><li>Azúcar</li></ul>
+          <h4>Preparación:</h4>
+          <p>Machaque bananas, mezcla con harina, huevos y azúcar, hornea 40 min a 180°C.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="postres">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(6).jpg" alt="Panqueques">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥞 Panqueques</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Harina</li><li>Huevos</li><li>Leche</li><li>Azúcar</li></ul>
+          <h4>Preparación:</h4>
+          <p>Mezcla ingredientes, cocina en sartén hasta dorar ambos lados.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="postres">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(15).jpg" alt="Crepes Dulces">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥞 Crepes Dulces</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Harina</li><li>Leche</li><li>Huevos</li><li>Azúcar</li></ul>
+          <h4>Preparación:</h4>
+          <p>Mezcla ingredientes, cocina en sartén fina y sirve con chocolate o frutas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comidas -->
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar.jpg" alt="Pizza Casera">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍕 Pizza Casera</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Masa</li><li>Salsa</li><li>Queso</li><li>Vegetales</li></ul>
+          <h4>Preparación:</h4>
+          <p>Extiende la masa, agrega salsa, queso y tus ingredientes favoritos. Hornea 15 min a 200°C.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(10).jpg" alt="Arroz con Pollo">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍗 Arroz con Pollo</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Arroz</li><li>Pollo</li><li>Zanahoria</li><li>Pimientos</li><li>Caldo</li></ul>
+          <h4>Preparación:</h4>
+          <p>Cocina el pollo, agrega verduras, arroz y caldo, cocina hasta que el arroz esté listo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(14).jpg" alt="Spaghetti Boloñesa">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍝 Spaghetti Boloñesa</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Pasta</li><li>Carne molida</li><li>Salsa de tomate</li><li>Queso parmesano</li></ul>
+          <h4>Preparación:</h4>
+          <p>Cocina la pasta, prepara la salsa con carne y tomate, mezcla y sirve con queso.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(18).jpg" alt="Pollo Asado">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🍗 Pollo Asado</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Pollo entero</li><li>Ajo</li><li>Pimienta</li><li>Sal</li><li>Hierbas</li></ul>
+          <h4>Preparación:</h4>
+          <p>Condimenta el pollo y hornea 1 hora a 200°C hasta dorar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(22).jpg" alt="Ceviche">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🐟 Ceviche</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Pescado fresco</li><li>Limón</li><li>Cebolla</li><li>Tomate</li><li>Cilantro</li></ul>
+          <h4>Preparación:</h4>
+          <p>Corta pescado, marina en limón, agrega verduras y cilantro.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta categoria" data-categoria="comidas">
+      <img src="file:///C:/Users/pc/Desktop/recetas/descargar%20(19).jpg" alt="Paella">
+      <div class="contenido-card">
+        <div class="titulo" onclick="toggleReceta(this)">🥘 Paella</div>
+        <div class="detalle">
+          <h4>Ingredientes:</h4>
+          <ul><li>Arroz</li><li>Mariscos</li><li>Pollo</li><li>Verduras</li><li>Azafrán</li></ul>
+          <h4>Preparación:</h4>
+          <p>Cocina arroz con mariscos, pollo y verduras, agrega azafrán y sirve caliente.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleReceta(element) {
+      let detalle = element.nextElementSibling;
+      detalle.style.display = detalle.style.display === "block" ? "none" : "block";
+    }
+
+    function mostrarCategoria(categoria) {
+      const recetas = document.querySelectorAll('.receta.categoria');
+      recetas.forEach(r => {
+        if (categoria === 'todas' || r.dataset.categoria === categoria) {
+          r.style.display = 'flex';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    mostrarCategoria('todas');
+  </script>
+
+</body>
+</html>
